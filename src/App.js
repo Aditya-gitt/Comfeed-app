@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+// import { Footer } from "./Components/Footer";
+import { ThemeProvider } from "styled-components";
+import { Container } from "./components/styles/Container.styled";
+import GlobalStyles from "./components/styles/GlobalStyles";
+// import Navbar from "./Components/Navbar";
+// import Route__List from "./Route__List";
+
+const theme = {
+    colors: {
+        header: "#000",
+        body: "#fff",
+        footer: "#003333",
+    },
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <>
+                <GlobalStyles />
+                <Header />
+                {/* <Navbar /> */}
+                {/* <Route__List /> */}
+                {/* <Container class="container" */}
+                <Container>
+                    {/* <Route__List /> */}
+                    {/* <Header /> */}
+                    <h1>app page</h1>
+                </Container>
+            </>
+        </ThemeProvider>
+    );
 }
 
 export default App;
