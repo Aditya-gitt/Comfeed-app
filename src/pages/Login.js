@@ -1,19 +1,18 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
-import {useNavigate } from 'react-router-dom';
 import axiosInstance from "../axios";
+import { Header } from "../components/Header";
+import EntryCard from "../components/EntryCard";
 import InputGroup from "../components/InputGroup";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { ThemeProvider } from "styled-components";
-import { Header } from "../components/Header";
-// import { Container } from "../components/styles/Container.styled";
-
-import { Link } from "react-router-dom";
-import { EntryPage } from "./style";
-import EntryCard from "../components/EntryCard";
-// import EntryCard from "../components/EntryCard/EntryCard";
 import GlobalStyles from "../components/styles/GlobalStyles";
+// import { Container } from "../components/styles/Container.styled";
+import { EntryPage } from "./style";
+
 const theme = {
     colors: {
         header: "#000",
@@ -21,12 +20,12 @@ const theme = {
         footer: "#003333",
     },
 };
-function Login() {
 
+function Login() {
     const navigate = new useNavigate();
     const initialFormData = {
-        username : '',
-        password : '',
+        username: "",
+        password: "",
     };
 
     const [formData, updateFormData] = useState(initialFormData);
@@ -45,51 +44,41 @@ function Login() {
 
         axiosInstance
             .post(`api/token/`, {
-                username : formData.username,
-                password : formData.password,
+                username: formData.username,
+                password: formData.password,
             })
             .then((response) => {
-                localStorage.setItem('access_token', response.data.access);
-                localStorage.setItem('refresh_token', response.data.refresh);
-                axiosInstance.defaults.headers['Authorization'] = 
-                'Bearer ' + response.data.access;
+                localStorage.setItem("access_token", response.data.access);
+                localStorage.setItem("refresh_token", response.data.refresh);
+                axiosInstance.defaults.headers["Authorization"] =
+                    "Bearer " + response.data.access;
                 loadingState(false);
-                alert('You are logined as ' + formData.username);
-                navigate('/');
+                alert("You are logined as " + formData.username);
+                navigate("/");
             })
             .catch((error) => {
                 loadingState(false);
                 const key = Object.keys(error.response.data)[0];
-                alert(JSON.stringify(error.response.data[key]).replace(/"/g, '')
-                                                              .replace('[', '')
-                                                              .replace(']', ''));
+                alert(
+                    JSON.stringify(error.response.data[key])
+                        .replace(/"/g, "")
+                        .replace("[", "")
+                        .replace("]", "")
+                );
             });
     };
 
     return (
-        // <ThemeProvider theme={theme}>
-        //     <>
-        //         <GlobalStyles />
-        //         <Header />
-        //         {/* <Navbar /> */}
-        //         {/* <Route__List /> */}
-        //         {/* <Container class="container" */}
-        //         <Container>
-        //             {/* <Route__List /> */}
-        //             {/* <Header /> */}
-        //             {/* <h1>Login page</h1>
-        //              */}
-        //         </Container>
-        //     </>
-        // </ThemeProvider>
         <ThemeProvider theme={theme}>
             <>
                 <GlobalStyles />
+
                 <Header />
+
                 <EntryPage>
-                    {/* <PageHeader to="/"> AWESOME LOGO</PageHeader> */}
                     <EntryCard>
                         <h2>Log in</h2>
+
                         <form onSubmit={handleSubmit}>
                             <InputGroup>
                                 <label htmlFor="login-username"></label>
@@ -98,10 +87,11 @@ function Login() {
                                     required
                                     placeholder="username"
                                     id="login-username"
-                                    name='username'
+                                    name="username"
                                     onChange={handleChange}
                                 ></Input>
                             </InputGroup>
+
                             <InputGroup>
                                 <label htmlFor="login-password"></label>
                                 <Input
@@ -109,12 +99,18 @@ function Login() {
                                     required
                                     placeholder="password"
                                     id="login-password"
-                                    name='password'
+                                    name="password"
                                     onChange={handleChange}
                                 ></Input>
                             </InputGroup>
-                            {loading ? <Button >Loading... </Button> :<Button type="submit">Login</Button>}
+
+                            {loading ? (
+                                <Button>Loading... </Button>
+                            ) : (
+                                <Button type="submit">Login</Button>
+                            )}
                         </form>
+
                         <span>
                             Dont' have a account?
                             <Link to="/signup">Sign up</Link>

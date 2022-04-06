@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// interface Props {}
 export const StyledButton = styled.button`
     // width: 64px;
     width: ${(props) => (props.full ? "100%" : null)}

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// interface Props {}
 export const StyledInputGroup = styled.div`
     margin-bottom: 24px;
     text-align: left;

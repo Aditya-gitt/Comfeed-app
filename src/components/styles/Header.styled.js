@@ -6,24 +6,29 @@ export const StyledHeader = styled.header`
     color: white;
     height: 70px;
     width: 100%;
-    // margin-right: 20px;
     display: flex;
     align-items: center;
     border-bottom: 3px solid grey;
     justify-content: flex-end;
+
+    // margin-right: 20px;
     // justify-content: auto;
 
     img {
         position: relative;
-        // left: 0%;
-        // top: 5px;
         max-height: 60px;
-        // margin-left: 1%;
         margin-top: 6px;
         margin-right: 20px;
         background-color: white;
+
+        // top: 5px;
+        // margin-left: 1%;
+        // left: 0%;
     }
     h1 {
+        position: relative;
+        margin-right: auto;
+
         // justify-content: auto;
         // display: block;
         // position: absolute;
@@ -31,8 +36,6 @@ export const StyledHeader = styled.header`
         // margin-left: 2%;
         // text-align: center;
         // position: absolute;
-        position: relative;
-        margin-right: auto;
         // left: 45%;
         // top: 10px;
         // max-height: 12%;

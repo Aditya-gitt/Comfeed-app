@@ -1,15 +1,13 @@
 import { createGlobalStyle } from "styled-components";
-// import { ThemeType } from ".";
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
   * {
-    // box-sizing: border-box;
-    // new
     margin: 0;
     padding: 0;
     outline: 0;
     text-decoration: none;
     box-sizing: border-box;
+    // box-sizing: border-box;
   }
   body {
     
