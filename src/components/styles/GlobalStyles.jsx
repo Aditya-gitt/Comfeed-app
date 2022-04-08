@@ -19,12 +19,12 @@ const GlobalStyles = createGlobalStyle`
     // new:
     font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #333;
+    // color: #333;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   p {
-    opacity: 0.6;
+    // opacity: 0.6;
     line-height: 1.5;
   }
   img {

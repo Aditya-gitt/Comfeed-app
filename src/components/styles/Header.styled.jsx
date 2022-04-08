@@ -4,7 +4,7 @@ export const StyledHeader = styled.header`
     background-color: ${({ theme }) => theme.colors.header};
     padding: 0px 10px;
     color: white;
-    height: 70px;
+    height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -15,6 +15,11 @@ export const StyledHeader = styled.header`
     // justify-content: auto;
 
     img {
+        color: white;
+        // outline: 3px solid red;
+        // border-color: green;
+        border: 3px solid;
+        border-radius: 15px;
         position: relative;
         max-height: 60px;
         margin-top: 6px;
