@@ -1,4 +1,6 @@
 import { Header } from "./components/Header";
+import  Feed  from "./components/Feed";
+import  Post  from "./components/Post";
 // import { Footer } from "./Components/Footer";
 import { ThemeProvider } from "styled-components";
 import { Container } from "./components/styles/Container.styled";
@@ -22,27 +24,10 @@ function App() {
             <>
                 <GlobalStyles />
                 <Header />
-                <Container2>
+                <Feed/>
                     <Container>
-                        <h1>app page</h1>
+                        <Post/>
                     </Container>
-                    <Container>
-                        {/* <h1>app page</h1> */}
-                        {/* <Container> */}
-                        {/* <h1>app page</h1>
-                         */}
-                        <h5>Red Square</h5>
-                        {/* <h5>Red Square</h5> */}
-                        <p>hello I had such and such experience there</p>
-                        <p>tags</p>
-                        <ThumbUpOffAltIcon></ThumbUpOffAltIcon>
-                        <ThumbUpAltIcon></ThumbUpAltIcon>
-                        <ThumbDownOffAltIcon></ThumbDownOffAltIcon>
-                        <ThumbDownAltIcon></ThumbDownAltIcon>
-                        {/* <ThumbUpOffAltIcon></ThumbUpOffAltIcon> */}
-                        {/* </Container> */}
-                    </Container>
-                </Container2>
             </>
         </ThemeProvider>
     );
