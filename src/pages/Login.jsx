@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import jwt_decode from "jwt-decode";
 
 import axiosInstance from "../axios";
 import { Header } from "../components/Header";
@@ -20,7 +21,7 @@ const theme = {
         footer: "#003333",
     },
 };
-
+// export const [author, setAuthor] = useState("");
 function Login() {
     const navigate = new useNavigate();
     const initialFormData = {
@@ -30,6 +31,7 @@ function Login() {
 
     const [formData, updateFormData] = useState(initialFormData);
     const [loading, loadingState] = useState(false);
+    // const [author, setAuthor] = useState("");
 
     const handleChange = (e) => {
         updateFormData({
@@ -50,6 +52,13 @@ function Login() {
             .then((response) => {
                 localStorage.setItem("access_token", response.data.access);
                 localStorage.setItem("refresh_token", response.data.refresh);
+                localStorage.setItem(
+                    "author_id",
+                    jwt_decode(response.data.access).user_id
+                );
+                const author_id = jwt_decode(response.data.access).user_id;
+                console.log(author_id);
+                // setAuthor(author_id);
                 axiosInstance.defaults.headers["Authorization"] =
                     "Bearer " + response.data.access;
                 loadingState(false);

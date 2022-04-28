@@ -2,10 +2,10 @@ import React from "react";
 import Share from "../components/Share";
 
 export default function Feed() {
-    return(
+    return (
         <>
-        <div>Feed</div>
-        <Share/>
+            {/* <div>Feed</div> */}
+            <Share />
         </>
-    ) 
+    );
 }

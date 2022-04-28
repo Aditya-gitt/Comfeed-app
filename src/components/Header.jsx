@@ -4,7 +4,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { StyledHeader, NavItemLink } from "./styles/Header.styled";
 import React from "react";
 import Comfeed__logo from "../Photos/Comfeed__logo.png";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export const Header = () => {
     return (
         <StyledHeader>

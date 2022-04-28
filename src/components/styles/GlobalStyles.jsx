@@ -11,7 +11,16 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     
-    background: ${({ theme }) => theme.colors.body};
+    // background: ${({ theme }) => theme.colors.body};
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+        url("https://wallpaperaccess.com/full/701802.jpg");
+    
+    background-size: contain;
+    // background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
     // color: hsl(192, 100%, 9%);
     font-family: 'Poppins', sans-serif;
     font-size: 1.15em;
