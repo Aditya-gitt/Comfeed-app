@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const StyledShare = styled.div`
-    width: 450px;
+    // width: 450px;
+    width: 100%;
     height: 490px;
     padding: 10px;
     border-radius: 10px;
     margin: auto;
-    //background-color: #228B22;
+    background-color: #f6f6f8;
     //box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     -webkit-box-shadow: -13px 6px 28px -7px rgba(0, 0, 0, 1);
     -moz-box-shadow: -13px 6px 28px -7px rgba(0, 0, 0, 1);
@@ -22,7 +23,7 @@ export const StyledTop = styled.div`
 
     padding: 3px;
     margin-bottom: 65px;
-    //background-color: #E0FFFF;
+    // background-color: #e0ffff;
     // justify-content: contain;
     // flex-direction: left;
 `;
@@ -46,18 +47,18 @@ export const StyledBottom = styled.div`
     margin-top: 20px;
     color: #1e90ff;
     align-items: center;
-    width: 390px;
+    // width: 390px;
     justify-content: space-between;
 `;
 export const Tag = styled.div`
     display: flex;
     color: #1e90ff;
     align-items: center;
-    width: 90px;
+    // width: 90px;
 `;
 export const Location = styled.div`
     display: flex;
     color: #1e90ff;
     align-items: center;
-    width: 150px;
+    // width: 150px;
 `;

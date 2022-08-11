@@ -76,6 +76,7 @@ class InfiniteResults extends React.PureComponent {
     //useWindow
     render() {
         const { error, hasMore, loading, chats } = this.state;
+
         return (
             <div>
                 <br />
@@ -85,6 +86,7 @@ class InfiniteResults extends React.PureComponent {
                     return (
                         <div>
                             {/* <Container> */}
+                            {/* <p>feed</p> */}
                             <Post feed={j} key={j.id} />
                             {/* </Container> */}
                         </div>
@@ -92,7 +94,7 @@ class InfiniteResults extends React.PureComponent {
                 })}
                 {error && <div>{error}</div>}
                 {loading && <div>Loading...</div>}
-                {!hasMore && <div>No more results</div>}
+                {!hasMore && <div>you have reached the end</div>}
             </div>
         );
     }

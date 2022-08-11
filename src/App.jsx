@@ -6,11 +6,16 @@ import { ThemeProvider } from "styled-components";
 // import { Container } from "./components/styles/Container.styled";
 // import { Container2 } from "./components/styles/Container.styled";
 import GlobalStyles from "./components/styles/GlobalStyles";
-// import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-// import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
-// import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-// import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
+
 import InfiniteResults from "./pages/InfiniteResults";
+import {
+    Comrow,
+    Leftcol,
+    LeftContent,
+    Middlecol,
+    Rightcol,
+    RightContent,
+} from "./components/styles/Comstyles";
 // import "./App.css";
 const theme = {
     colors: {
@@ -26,11 +31,26 @@ function App() {
             <>
                 <GlobalStyles />
                 <Header />
-                <Feed />
+
                 {/* <Container>
                     <Post />
                 </Container> */}
-                <InfiniteResults></InfiniteResults>
+                <div>
+                    <Comrow>
+                        <Leftcol>
+                            <LeftContent></LeftContent>
+                        </Leftcol>
+
+                        <Middlecol>
+                            <Feed />
+                            <InfiniteResults></InfiniteResults>
+                        </Middlecol>
+                        <Rightcol>
+                            <RightContent></RightContent>
+                        </Rightcol>
+                    </Comrow>
+                </div>
+                {/* <InfiniteResults></InfiniteResults> */}
             </>
         </ThemeProvider>
     );

@@ -1,55 +1,170 @@
-// import React, { useEffect, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-// import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Container, ContainerUserName } from "./styles/Container.styled";
-// import { ContainerThreeDot } from "./styles/Container.styled";
+import { useEffect, useState } from "react";
+import axiosInstance from "../axios";
+import {
+    Container,
+    Containerfeed,
+    Containertags,
+    ContainerTitle,
+    ContainerUserName,
+    Containervotes,
+    FeedDetail,
+} from "./styles/Container.styled";
 import { ContainerTime } from "./styles/Container.styled";
+import moment from "moment";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
+
+// import React, { useEffect, useState } from "react";
+// import { ContainerThreeDot } from "./styles/Container.styled";
 // import { author } from "../pages/Login";
+
 export default function Post({ feed }) {
+    const [items, setItems] = useState([]);
+    const [chatID, setchatID] = useState([]);
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem("author_id"));
+        if (items) {
+            setItems(items);
+        }
+    }, []);
+
+    const initialFormData = {
+        chatID: "",
+        author_id: items,
+    };
+
+    const [formData, updateFormData] = useState(initialFormData);
+    const [loading, loadingState] = useState(false);
+
+    const handleUpvote = (e) => {
+        setchatID(parseInt(feed.chat_id));
+        e.preventDefault();
+        loadingState(true);
+        updateFormData({
+            ...formData,
+            [e.target.name]: e.target.value.trim(),
+        });
+
+        axiosInstance
+            .post(`http://127.0.0.1:8000/chat/upvote/`, {
+                author_id: items,
+                // tags: formData.tags.split(","),
+                chat_id: chatID,
+                // upvotes: formData.upvote,
+                // downvotes: formData.downvote,
+            })
+            .then((response) => {
+                loadingState(false);
+                console.log(response);
+                console.log(response.data);
+                alert("voted.");
+                // navigate("/login");
+            })
+            .catch((error) => {
+                loadingState(false);
+                const key = Object.keys(error.response.data)[0];
+                alert(
+                    JSON.stringify(error.response.data[key])
+                        .replace(/"/g, "")
+                        .replace("[", "")
+                        .replace("]", "")
+                );
+            });
+    };
+    const handleDownvote = (e) => {
+        setchatID(parseInt(feed.chat_id));
+        e.preventDefault();
+        loadingState(true);
+        updateFormData({
+            ...formData,
+            [e.target.name]: e.target.value.trim(),
+        });
+
+        axiosInstance
+            .post(`http://127.0.0.1:8000/chat/downvote/`, {
+                author_id: items,
+                // tags: formData.tags.split(","),
+                chat_id: chatID,
+                // upvotes: formData.upvote,
+                // downvotes: formData.downvote,
+            })
+            .then((response) => {
+                loadingState(false);
+                console.log(response);
+                console.log(response.data);
+                alert("voted.");
+                // navigate("/login");
+            })
+            .catch((error) => {
+                loadingState(false);
+                const key = Object.keys(error.response.data)[0];
+                alert(
+                    JSON.stringify(error.response.data[key])
+                        .replace(/"/g, "")
+                        .replace("[", "")
+                        .replace("]", "")
+                );
+            });
+    };
+
+    let isnegetive;
+    if (feed.feed_type == "p") isnegetive = true;
+
     return (
         <>
-            <Container>
-                <AccountCircleIcon />
-                <ContainerUserName>{feed.author_id}</ContainerUserName>
-                <ContainerTime>5 Min ago</ContainerTime>
-                {/* <ContainerThreeDot>
+            <Container
+                // style={{
+                //     backgroundColor: isnegetive ? "#fff6f5" : "#e6ffed",
+                // }}
+                style={{
+                    backgroundColor: isnegetive
+                        ? "rgba(245, 255, 245, .75)"
+                        : "rgba(255, 245, 245, .75)",
+                }}
+            >
+                <Containervotes>
+                    <ThumbUpAltIcon onClick={handleUpvote} />
+                    {/* <button onClick={handleUpvote}>upvote</button> */}
+                    <br />
+                    <span>{feed.upvotesCount - feed.downvotesCount}</span>
+                    <br />
+                    <button onClick={handleDownvote}>downvote</button>
+                    {/* <div onClick={this.handleDownvote}> */}
+                    <ThumbDownAltIcon onClick={handleDownvote} />
+
+                    {/* </div> */}
+                </Containervotes>
+                <Containerfeed>
+                    {" "}
+                    <ContainerUserName>
+                        posted by :{/* <AccountCircleIcon /> */}
+                        {feed.author_id}
+                        <ContainerTime>
+                            {moment(feed.date).fromNow()}
+                        </ContainerTime>
+                        <span style={{ float: "right" }}>{feed.chat_id}</span>
+                    </ContainerUserName>
+                    {/* <ContainerThreeDot>
                     <MoreVertIcon />
                 </ContainerThreeDot> */}
-                {/* <p>{items}</p> */}
-                <span>
-                    <b>Title:</b> {feed.title}{" "}
-                </span>
-                <br />
-                <span>
-                    <b>feed:</b> {feed.feed}{" "}
-                </span>
-                <br />
-                <span>
-                    <b>date:</b> {feed.date}{" "}
-                </span>
-                <span>
-                    <b>time:</b> {feed.time}{" "}
-                </span>
-                <br />
-                <span>
-                    tags:
-                    {/* <b>tags:</b> */}
-                    {feed.tags.map((tag) => (
-                        // <b>{tag}</b>
-                        <p>#{tag}</p>
-                    ))}
-                </span>
-                <br />
-                <span>
-                    <b>upvotes</b> {feed.upvotes}{" "}
-                </span>
-                <span>
-                    <b>downvotes</b> {feed.downvotes}{" "}
-                </span>
-                <span>
-                    <b>feed type</b> {feed.feed_type}{" "}
-                </span>
+                    {/* <p>{items}</p> */}
+                    <ContainerTitle>{feed.title}</ContainerTitle>
+                    <br />
+                    <FeedDetail>{feed.feed} </FeedDetail>
+                    <br />
+                    <span>
+                        {feed.tags.map((tag) => (
+                            <Containertags>{tag}</Containertags>
+                        ))}
+                    </span>
+                    <br />
+                </Containerfeed>
             </Container>
         </>
     );
 }
+
+// import MoreVertIcon from "@mui/icons-material/MoreVert";

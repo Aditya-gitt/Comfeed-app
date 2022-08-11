@@ -9,6 +9,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { Header } from "../components/Header";
 import EntryCard from "../components/EntryCard";
+// import InputLabel from "@material-ui/core/InputLabel";
 // import { Container } from "../components/styles/Container.styled";
 // import EntryCard from "../components/EntryCard/EntryCard";
 import GlobalStyles from "../components/styles/GlobalStyles";
@@ -95,11 +96,11 @@ function Signup() {
                             <InputGroup>
                                 <label htmlFor="Signup-password"></label>
                                 <Input
-                                    type="text"
                                     required
                                     placeholder="password"
                                     id="Signup-password"
                                     name="password"
+                                    type="password"
                                     onChange={handleChange}
                                 ></Input>
                             </InputGroup>

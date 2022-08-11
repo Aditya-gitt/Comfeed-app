@@ -42,3 +42,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export default GlobalStyles;
+
+// const ColoumnStyles = createGlobalStyle`
+// `;
+// export default ColoumnStyles;

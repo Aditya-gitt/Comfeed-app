@@ -21,6 +21,7 @@ const theme = {
         footer: "#003333",
     },
 };
+
 // export const [author, setAuthor] = useState("");
 function Login() {
     const navigate = new useNavigate();
@@ -104,7 +105,7 @@ function Login() {
                             <InputGroup>
                                 <label htmlFor="login-password"></label>
                                 <Input
-                                    type="text"
+                                    type="password"
                                     required
                                     placeholder="password"
                                     id="login-password"
