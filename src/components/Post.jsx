@@ -1,4 +1,4 @@
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useEffect, useState } from "react";
 import axiosInstance from "../axios";
 import {
@@ -12,18 +12,23 @@ import {
 } from "./styles/Container.styled";
 import { ContainerTime } from "./styles/Container.styled";
 import moment from "moment";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
-import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
-
+// import ThumbUpOffAlt from "@mui/icons-material/ThumbUpOffAlt";
+// import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+// import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+// import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
+// import IconButton from "@mui/material/IconButton";
+import { Button } from "@mui/material";
+// import ThumbUpAlt from "@mui/icons-material/ThumbUpAlt";
+// import ThumbDownAlt from "@mui/icons-material/ThumbDownAlt";
+// import ThumbDownOffAlt from "@mui/icons-material/ThumbDownOffAlt";
 // import React, { useEffect, useState } from "react";
 // import { ContainerThreeDot } from "./styles/Container.styled";
 // import { author } from "../pages/Login";
 
 export default function Post({ feed }) {
+    const [changedata, setchange] = useState(feed.vote);
     const [items, setItems] = useState([]);
-    const [chatID, setchatID] = useState([]);
+    // const [chatID, setchatID] = useState(1);
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem("author_id"));
         if (items) {
@@ -32,15 +37,16 @@ export default function Post({ feed }) {
     }, []);
 
     const initialFormData = {
-        chatID: "",
+        // chatID: "",
         author_id: items,
     };
 
     const [formData, updateFormData] = useState(initialFormData);
     const [loading, loadingState] = useState(false);
-
+    // setchange(feed.vote);
     const handleUpvote = (e) => {
-        setchatID(parseInt(feed.chat_id));
+        if (changedata == 1) setchange(0);
+        else setchange(1);
         e.preventDefault();
         loadingState(true);
         updateFormData({
@@ -52,7 +58,7 @@ export default function Post({ feed }) {
             .post(`http://127.0.0.1:8000/chat/upvote/`, {
                 author_id: items,
                 // tags: formData.tags.split(","),
-                chat_id: chatID,
+                chat_id: feed.chat_id,
                 // upvotes: formData.upvote,
                 // downvotes: formData.downvote,
             })
@@ -66,16 +72,12 @@ export default function Post({ feed }) {
             .catch((error) => {
                 loadingState(false);
                 const key = Object.keys(error.response.data)[0];
-                alert(
-                    JSON.stringify(error.response.data[key])
-                        .replace(/"/g, "")
-                        .replace("[", "")
-                        .replace("]", "")
-                );
+                alert(JSON.stringify(error.response.data));
             });
     };
     const handleDownvote = (e) => {
-        setchatID(parseInt(feed.chat_id));
+        if (changedata == -1) setchange(0);
+        else setchange(-1);
         e.preventDefault();
         loadingState(true);
         updateFormData({
@@ -87,7 +89,7 @@ export default function Post({ feed }) {
             .post(`http://127.0.0.1:8000/chat/downvote/`, {
                 author_id: items,
                 // tags: formData.tags.split(","),
-                chat_id: chatID,
+                chat_id: feed.chat_id,
                 // upvotes: formData.upvote,
                 // downvotes: formData.downvote,
             })
@@ -126,16 +128,48 @@ export default function Post({ feed }) {
                 }}
             >
                 <Containervotes>
-                    <ThumbUpAltIcon onClick={handleUpvote} />
-                    {/* <button onClick={handleUpvote}>upvote</button> */}
-                    <br />
-                    <span>{feed.upvotesCount - feed.downvotesCount}</span>
-                    <br />
-                    <button onClick={handleDownvote}>downvote</button>
-                    {/* <div onClick={this.handleDownvote}> */}
-                    <ThumbDownAltIcon onClick={handleDownvote} />
+                    <div onClick={handleUpvote}>
+                        {changedata == 1 ? (
+                            <Button variant="outlined" size="small">
+                                like
+                            </Button>
+                        ) : (
+                            // <ThumbUpAlt></ThumbUpAlt>
+                            // <ThumbUpOffAlt></ThumbUpOffAlt>
+                            <Button variant="contained" size="small">
+                                {" "}
+                                like
+                            </Button>
+                        )}
+                    </div>
 
-                    {/* </div> */}
+                    <br />
+                    {/* <span>
+                        {changedata == feed.vote
+                            ? feed.upvotesCount - feed.downvotesCount
+                            : feed.upvotesCount - feed.downvotesCount}
+                    </span> */}
+                    <span>
+                        {feed.upvotesCount -
+                            feed.downvotesCount +
+                            changedata -
+                            feed.vote}
+                    </span>
+                    {/* <h3>{changedata}</h3> */}
+                    <br />
+                    <div onClick={handleDownvote}>
+                        {changedata == -1 ? (
+                            // <ThumbDownAlt></ThumbDownAlt>
+                            <Button variant="outlined" size="small">
+                                dislike
+                            </Button>
+                        ) : (
+                            // <ThumbDownOffAlt></ThumbDownOffAlt>
+                            <Button variant="contained" size="small">
+                                dislike
+                            </Button>
+                        )}
+                    </div>
                 </Containervotes>
                 <Containerfeed>
                     {" "}
@@ -147,9 +181,6 @@ export default function Post({ feed }) {
                         </ContainerTime>
                         <span style={{ float: "right" }}>{feed.chat_id}</span>
                     </ContainerUserName>
-                    {/* <ContainerThreeDot>
-                    <MoreVertIcon />
-                </ContainerThreeDot> */}
                     {/* <p>{items}</p> */}
                     <ContainerTitle>{feed.title}</ContainerTitle>
                     <br />

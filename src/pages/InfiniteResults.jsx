@@ -51,8 +51,11 @@ class InfiniteResults extends React.PureComponent {
         this.setState({ loading: true }, () => {
             const { offset, limit } = this.state;
             axiosInstance
-                .get(
-                    `http://127.0.0.1:8000/chat/get/?limit=${limit}&offset=${offset}`
+                .post(
+                    `http://127.0.0.1:8000/chat/get/?limit=${limit}&offset=${offset}`,
+                    {
+                        user_id: JSON.parse(localStorage.getItem("author_id")),
+                    }
                 )
                 .then((res) => {
                     const newchats = res.data.chats;
@@ -80,6 +83,7 @@ class InfiniteResults extends React.PureComponent {
         return (
             <div>
                 <br />
+                {/* <h1>{JSON.parse(localStorage.getItem("author_id"))}</h1> */}
                 {/* <h1>Feed</h1> */}
                 <hr />
                 {chats.map((j) => {
