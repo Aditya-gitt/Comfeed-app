@@ -9,6 +9,7 @@ import App from "./App";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import InfiniteResults from "./pages/InfiniteResults";
+import SearchChats from "./pages/SearchChats";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -21,6 +22,8 @@ ReactDOM.render(
                 <Route path="/signup" element={<SignupPage />} />
 
                 <Route path="/ir" element={<InfiniteResults />} />
+
+                <Route exact path="/search/:id" element={<SearchChats />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
     font-size: 19px;
     align-items: center;
-    // width: 750px;
     width: 90%;
     text-align: left;
     min-height: 150px;
@@ -27,7 +26,6 @@ export const ContainerUserName = styled.div`
     font-size: 18px;
     margin-top: 0px;
     margin-left: 10px;
-    //justify-content: space-around;
 `;
 export const ContainerTime = styled.span`
     margin-left: 20px;
@@ -46,14 +44,13 @@ export const ContainerTitle = styled.div`
 
 export const Containerfeed = styled.div`
     float: left;
-    width: 90%;
+    width: 85%;
     // font-size: 25px;
     padding-left: 10px;
     padding-right: 30px;
 `;
 export const Containertags = styled.button`
     font-size: 15px;
-    // padding-left: 40px;
     padding: 6px;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -71,14 +68,15 @@ export const Containertags = styled.button`
 
 export const Containervotes = styled.div`
     margin-top: 5px;
+    margin-bottom: 5px;
     float: left;
-    width: 10%;
+    width: 15%;
+    min-width: 50px;
     font-size: 25px;
-    // padding-left: 40px;
+    text-align: center;
 `;
 
 export const FeedDetail = styled.div`
     font-size: 18px;
     margin-left: 10px;
-    // margin: 3px;
 `;

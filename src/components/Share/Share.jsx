@@ -4,11 +4,8 @@ import { StyledTop } from "./style";
 import { StyledBottom } from "./style";
 import { StyledTopInput } from "./style";
 import { Tag } from "./style";
-// import { Location } from "./style";
 import { StyledButton } from "../Button/style";
 import TagIcon from "@mui/icons-material/Tag";
-// import LocationOnIcon from "@mui/icons-material/LocationOn";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 import axiosInstance from "../../axios";
 function Share() {
@@ -26,8 +23,6 @@ function Share() {
         feed: "",
         feed_type: "",
         tags: [],
-        // upvote: "",
-        // downvote: "",
     };
 
     const [formData, updateFormData] = useState(initialFormData);
@@ -51,15 +46,12 @@ function Share() {
                 feed: formData.feed,
                 feed_type: formData.feed_type,
                 tags: formData.tags.split(","),
-                // upvotes: formData.upvote,
-                // downvotes: formData.downvote,
             })
             .then((response) => {
                 loadingState(false);
                 console.log(response);
                 console.log(response.data);
                 alert("posted.");
-                // navigate("/login");
             })
             .catch((error) => {
                 loadingState(false);
@@ -76,8 +68,6 @@ function Share() {
         <StyledShare>
             <form onSubmit={handleSubmit}>
                 <StyledTop>
-                    <AccountCircleIcon />
-
                     <StyledTopInput>
                         <input
                             placeholder="Title "
@@ -85,7 +75,6 @@ function Share() {
                             onChange={handleChange}
                         />
                     </StyledTopInput>
-                    <br />
                     <StyledTopInput>
                         <input
                             placeholder="Share your Experience.. "
@@ -93,7 +82,6 @@ function Share() {
                             onChange={handleChange}
                         />
                     </StyledTopInput>
-                    <br />
                     <StyledTopInput>
                         <input
                             placeholder="feed type "
@@ -101,8 +89,6 @@ function Share() {
                             onChange={handleChange}
                         />
                     </StyledTopInput>
-                    <br />
-                    {/* <br /> */}
                     <StyledTopInput>
                         <input
                             placeholder="tags"
@@ -115,7 +101,6 @@ function Share() {
                 <StyledBottom>
                     <TagIcon />
                     <Tag>{/* <input type="text" /> */}</Tag>
-
                     {/* <StyledButton type="submit">Share </StyledButton> */}
                     {loading ? (
                         <StyledButton>Loading... </StyledButton>

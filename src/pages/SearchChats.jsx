@@ -1,8 +1,13 @@
 import React from "react";
 import axiosInstance from "../axios";
 import Post from "../components/Post";
+import { useParams } from "react-router-dom";
 
-class InfiniteResults extends React.PureComponent {
+function withParams(Component) {
+    return (props) => <Component {...props} params={useParams()} />;
+}
+
+class SearchChats extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,18 +33,18 @@ class InfiniteResults extends React.PureComponent {
             }
         };
     }
-
     componentDidMount() {
-        this.loadchats();
+        let { id } = this.props.params;
+        this.loadchats(id);
     }
-
-    loadchats = () => {
+    loadchats = (tagName) => {
         this.setState({ loading: true }, () => {
             const { offset, limit } = this.state;
             axiosInstance
                 .post(
-                    `http://127.0.0.1:8000/chat/get/?limit=${limit}&offset=${offset}`,
+                    `http://127.0.0.1:8000/chat/search/?limit=${limit}&offset=${offset}`,
                     {
+                        tags: tagName,
                         user_id: JSON.parse(localStorage.getItem("author_id")),
                     }
                 )
@@ -63,6 +68,7 @@ class InfiniteResults extends React.PureComponent {
     };
     render() {
         const { error, hasMore, loading, chats } = this.state;
+
         return (
             <div>
                 <br />
@@ -82,4 +88,4 @@ class InfiniteResults extends React.PureComponent {
     }
 }
 
-export default InfiniteResults;
+export default withParams(SearchChats);

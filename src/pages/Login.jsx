@@ -10,7 +10,7 @@ import EntryCard from "../components/EntryCard";
 import InputGroup from "../components/InputGroup";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import GlobalStyles from "../components/styles/GlobalStyles";
+// import GlobalStyles from "../components/styles/GlobalStyles";
 // import { Container } from "../components/styles/Container.styled";
 import { EntryPage } from "./style";
 
@@ -63,7 +63,7 @@ function Login() {
                 axiosInstance.defaults.headers["Authorization"] =
                     "Bearer " + response.data.access;
                 loadingState(false);
-                alert("You are logined as " + formData.username);
+                // alert("You are logined as " + formData.username);
                 navigate("/");
             })
             .catch((error) => {
@@ -81,7 +81,7 @@ function Login() {
     return (
         <ThemeProvider theme={theme}>
             <>
-                <GlobalStyles />
+                {/* <GlobalStyles /> */}
 
                 <Header />
 

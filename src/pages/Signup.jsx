@@ -9,10 +9,6 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { Header } from "../components/Header";
 import EntryCard from "../components/EntryCard";
-// import InputLabel from "@material-ui/core/InputLabel";
-// import { Container } from "../components/styles/Container.styled";
-// import EntryCard from "../components/EntryCard/EntryCard";
-import GlobalStyles from "../components/styles/GlobalStyles";
 import { EntryPage } from "./style";
 
 const theme = {
@@ -53,7 +49,7 @@ function Signup() {
                 loadingState(false);
                 console.log(response);
                 console.log(response.data);
-                alert("Account Created successfully.");
+                // alert("Account Created successfully.");
                 navigate("/login");
             })
             .catch((error) => {
@@ -71,7 +67,7 @@ function Signup() {
     return (
         <ThemeProvider theme={theme}>
             <>
-                <GlobalStyles />
+                {/* <GlobalStyles /> */}
 
                 <Header />
 
