@@ -1,6 +1,7 @@
 import { Header } from "./components/Header";
 import { ThemeProvider } from "styled-components";
 // import GlobalStyles from "./components/styles/GlobalStyles";
+import SearchBar from "./components/Share/SearchBar";
 import InfiniteResults from "./pages/InfiniteResults";
 import {
     Comrow,
@@ -31,6 +32,7 @@ function App() {
                         <Leftcol>
                             <LeftContent></LeftContent>
                         </Leftcol>
+                        <SearchBar/>
                         <Middlecol>
                             <Share />
                             <InfiniteResults></InfiniteResults>

@@ -24,8 +24,11 @@ code {
 
 body {
     /* // background: ${({ theme }) => theme.colors.body}; */
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-        url("https://wallpaperaccess.com/full/701802.jpg");
+    /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+        url("https://wallpaperaccess.com/full/701802.jpg"); */
+    
+        background: rgb(162,215,226);
+        background: radial-gradient(circle, rgba(162,215,226,1) 19%, rgba(225,238,241,1) 49%, rgba(162,215,226,1) 78%);  
 
     background-size: contain;
     background-repeat: no-repeat;

@@ -15,6 +15,7 @@ import moment from "moment";
 // import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 // import ThumbUpAlt from "@mui/icons-material/ThumbUpAlt";
 // import ThumbDownAlt from "@mui/icons-material/ThumbDownAlt";
 // import ThumbDownOffAlt from "@mui/icons-material/ThumbDownOffAlt";
@@ -92,6 +93,25 @@ export default function Post({ feed }) {
     // const handleTagSearch = (val) => {
     //     setTagName("/search/" + val);
     // };
+    const navigate = useNavigate();
+    const [searchField, setSearchField] = useState("");
+    // const handleChange = (e) => {
+    //     setSearchField(e.target.value)
+    //     console.log("ok")
+    // };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     // console.log(e.target.value)
+    //     console.log("ok")
+    //     navigate('/search/'+searchField);
+    //   }
+    const handleSubmit = (tag) => {
+        // tag.preventDefault();
+        // console.log(e.target.value)
+        console.log("ok")
+        navigate('/search/'+tag.trim());
+      }
+
     return (
         // <>
         <Container
@@ -152,14 +172,17 @@ export default function Post({ feed }) {
                 <div>
                     {feed.tags.map((tag) => (
                         <Containertags>
-                            <Link
+                            {/* <Link
                                 // onClick={
                                 // (() => setTagName(tag))
                                 // }
                                 to={"/search/" + tag.trim()}
                             >
                                 {tag}
-                            </Link>
+                            </Link> */}
+                            <button onClick={
+                                ((e) => ( handleSubmit(tag)))
+                                }>{tag}</button>
                         </Containertags>
                     ))}
                 </div>

@@ -4,18 +4,19 @@ export const StyledButton = styled.button`
     // width: 64px;
     width: ${(props) => (props.full ? "100%" : null)}
     border: 0;
-    border-radius: 4px;
-    padding: 8px 16px;
+    border-radius: 25px;
+    padding: 10px 29px;
     outline: none;
     background-color: #2f8bfd;
     color: #fff;
-    font-size: 0.875rem !important;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: bold;
     line-height: 1.5;
     letter-spacing: 0.02857rem;
     cursor: pointer;
     transition: all 0.2s;
     &:hover {
         background-color: #0072ff;
+        border: none
     }
 `;

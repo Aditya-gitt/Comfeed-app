@@ -26,7 +26,7 @@ export const Leftcol = styled.div`
 export const Rightcol = styled.div`
     border-top: 2px solid grey;
     float: left;
-    max-width: 25%;
+    min-width: 25%;
     min-height: 100vh;
     // background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
     // backdrop-filter: blur(7px);
