@@ -160,8 +160,8 @@ export default function Post({ feed }) {
             <Containerfeed>
                 {" "}
                 <ContainerUserName>
-                    posted by :{/* <AccountCircleIcon /> */}
-                    {feed.author_id}
+                    posted by {/* <AccountCircleIcon /> */}
+                    {feed.username}
                     <ContainerTime>
                         {moment(feed.date + "T" + feed.time).fromNow()}
                     </ContainerTime>
@@ -172,17 +172,18 @@ export default function Post({ feed }) {
                 <div>
                     {feed.tags.map((tag) => (
                         <Containertags>
-                            {/* <Link
+                            <Link
                                 // onClick={
                                 // (() => setTagName(tag))
                                 // }
                                 to={"/search/" + tag.trim()}
+                                target="_blank"
                             >
                                 {tag}
-                            </Link> */}
-                            <button onClick={
+                            </Link>
+                            {/* <button onClick={
                                 ((e) => ( handleSubmit(tag)))
-                                }>{tag}</button>
+                                }>{tag}</button> */}
                         </Containertags>
                     ))}
                 </div>

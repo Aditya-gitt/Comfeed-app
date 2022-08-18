@@ -57,8 +57,14 @@ function Login() {
                     "author_id",
                     jwt_decode(response.data.access).user_id
                 );
+                localStorage.setItem(
+                    "username",
+                    jwt_decode(response.data.access).username
+                );
                 const author_id = jwt_decode(response.data.access).user_id;
                 console.log(author_id);
+                // console.log((localStorage.getItem("username")));
+
                 // setAuthor(author_id);
                 axiosInstance.defaults.headers["Authorization"] =
                     "Bearer " + response.data.access;

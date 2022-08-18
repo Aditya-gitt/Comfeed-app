@@ -97,7 +97,7 @@ function Share() {
             <StyledTopInputTitle
               placeholder="Title "
               name="title"
-              size="25"
+              // size="200"
               onChange={handleChange}
             ></StyledTopInputTitle>
             <StyledFeed>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Comrow = styled.div`
     // margin-top: 60px;
     // background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-    backdrop-filter: blur(7px);
+    // backdrop-filter: blur(7px);
     &::after {
         content: "";
         display: table;

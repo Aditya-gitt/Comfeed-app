@@ -32,7 +32,7 @@ function App() {
                         <Leftcol>
                             <LeftContent></LeftContent>
                         </Leftcol>
-                        <SearchBar/>
+                        
                         <Middlecol>
                             <Share />
                             <InfiniteResults></InfiniteResults>
