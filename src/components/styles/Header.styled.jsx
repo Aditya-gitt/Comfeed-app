@@ -82,3 +82,5 @@ export const NavItemLink = styled(Link)`
             }
         `};
 `;
+export const StyledLetterIcon = styled.span`
+`;

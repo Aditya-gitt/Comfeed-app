@@ -1,7 +1,12 @@
 // src/components/header.tsx
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { StyledHeader, NavItemLink } from "./styles/Header.styled";
+// import VueInitialsImg from 'vue-initials-img';
+// Vue.use(VueInitialsImg);
+import Avatar from 'react-avatar';
+import LetteredAvatar from 'react-lettered-avatar';
+
+import { StyledHeader, NavItemLink,StyledLetterIcon } from "./styles/Header.styled";
 // import React from "react";
 import Comfeed__logo from "../Photos/Comfeed__logo.png";
 import { Link } from "react-router-dom";
@@ -16,6 +21,15 @@ export const Header = () => {
         setUsername(items);
     }
   }, []);
+  const arrayWithColors = [
+    '#2ecc71',
+    '#3498db',
+    '#8e44ad',
+    '#e67e22',
+    '#e74c3c',
+    '#1abc9c',
+    '#2c3e50'
+];
 
     return (
         <StyledHeader>
@@ -31,12 +45,11 @@ export const Header = () => {
             <NavItemLink to="/signup" $fill="true">
                 Sign up
             </NavItemLink>
-            {/* <span>{Username}</span> */}
             <Link to="/login">
-                <span>
-                    {/* <AccountCircleIcon style={{ fontSize: 50 }} /> */}
-                    {Username}
-                </span>
+                <StyledLetterIcon>
+                <Avatar name={Username} size={52} round="29px" 
+                color={Avatar.getRandomColor('sitebase', ['#d19fe8', '##99e6b3', '#ff6347'])} />
+                </StyledLetterIcon>
             </Link>
         </StyledHeader>
     );

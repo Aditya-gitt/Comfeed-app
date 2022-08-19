@@ -1,5 +1,6 @@
 import React from "react";
 import axiosInstance from "../axios";
+import Footer from "../components/Footer";
 import Post from "../components/Post";
 
 class InfiniteResults extends React.PureComponent {
@@ -76,7 +77,7 @@ class InfiniteResults extends React.PureComponent {
                 })}
                 {error && <div>{error}</div>}
                 {loading && <div>Loading...</div>}
-                {!hasMore && <div>you have reached the end</div>}
+                {!hasMore && <Footer></Footer>}
             </div>
         );
     }

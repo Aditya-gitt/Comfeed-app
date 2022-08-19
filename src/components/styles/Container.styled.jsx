@@ -26,11 +26,13 @@ export const ContainerUserName = styled.div`
     font-size: 18px;
     margin-top: 0px;
     margin-left: 10px;
+    text-decoration: underline;
 `;
 export const ContainerTime = styled.span`
     margin-left: 20px;
     color: gray;
     font-size: 18px;
+    
 `;
 export const ContainerThreeDot = styled.div`
     margin-left: 235px;

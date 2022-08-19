@@ -37,6 +37,9 @@ function Share() {
   const [loading, loadingState] = useState(false);
   const[feedState,setFeedState] = useState(true);
 
+  // document.getElementById("tags").innerHTML = tagArray;
+  // const tagArray = tagArray.split("#"); 
+
   const handleChange = (e) => {
     updateFormData({
       ...formData,
@@ -116,8 +119,9 @@ function Share() {
         <StyledBottom>
           {/* <TagIcon /> */}
           <StyledInputTag
-            placeholder="# Tags,Tags"
+            placeholder="# Tags  # Tags"
             name="tags"
+            id="tags"
             size="20"
             onChange={handleChange}
           ></StyledInputTag>

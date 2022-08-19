@@ -14,6 +14,8 @@ import moment from "moment";
 // import ThumbUpOffAlt from "@mui/icons-material/ThumbUpOffAlt";
 // import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
+import ArrowDropUpOutlinedIcon from '@mui/icons-material/ArrowDropUpOutlined';
+import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import { Link } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 // import ThumbUpAlt from "@mui/icons-material/ThumbUpAlt";
@@ -89,25 +91,10 @@ export default function Post({ feed }) {
 
     let isnegetive;
     if (feed.feed_type === "p") isnegetive = true;
-    // const [tagName, setTagName] = useState();
-    // const handleTagSearch = (val) => {
-    //     setTagName("/search/" + val);
-    // };
     const navigate = useNavigate();
     const [searchField, setSearchField] = useState("");
-    // const handleChange = (e) => {
-    //     setSearchField(e.target.value)
-    //     console.log("ok")
-    // };
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     // console.log(e.target.value)
-    //     console.log("ok")
-    //     navigate('/search/'+searchField);
-    //   }
     const handleSubmit = (tag) => {
-        // tag.preventDefault();
-        // console.log(e.target.value)
+
         console.log("ok")
         navigate('/search/'+tag.trim());
       }
@@ -118,23 +105,35 @@ export default function Post({ feed }) {
             key={feed.chat_id}
             style={{
                 backgroundColor: isnegetive
-                    ? "rgba(245, 255, 245, .75)"
-                    : "rgba(255, 245, 245, .75)",
+                    ? "rgba(245, 265, 245, .75)"
+                    : "rgba(295, 225, 245, .75)",
             }}
         >
             <Containervotes>
                 <div onClick={handleUpvote}>
                     {changedata === 1 ? (
                         // <ThumbUpAlt></ThumbUpAlt>
-                        <Button variant="outlined" size="small">
+                        <ArrowDropUpOutlinedIcon variant="outlined" size="large"  style={{
+                            maxWidth: "60px",
+                            maxHeight: "60px",
+                            minWidth: "60px",
+                            minHeight: "60px",
+                            color:"#808080",
+                          }}>
                             like
-                        </Button>
+                        </ArrowDropUpOutlinedIcon>
                     ) : (
                         // <ThumbUpOffAlt></ThumbUpOffAlt>
-                        <Button variant="contained" size="small">
+                        <ArrowDropUpOutlinedIcon variant="contained" size="large" style={{
+                            maxWidth: "50px",
+                            maxHeight: "50px",
+                            minWidth: "50px",
+                            minHeight: "50px",
+                            color:"#808080",
+                          }} >
                             {" "}
                             like
-                        </Button>
+                        </ArrowDropUpOutlinedIcon>
                     )}
                 </div>
                 <span>
@@ -146,21 +145,33 @@ export default function Post({ feed }) {
                 <div onClick={handleDownvote}>
                     {changedata === -1 ? (
                         // <ThumbDownAlt></ThumbDownAlt>
-                        <Button variant="outlined" size="small">
+                        <ArrowDropDownOutlinedIcon variant="outlined" size="large" style={{
+                            maxWidth: "60px",
+                            maxHeight: "60px",
+                            minWidth: "60px",
+                            minHeight: "60px",
+                            color:"#808080",
+                            }} >
                             dislike
-                        </Button>
+                        </ArrowDropDownOutlinedIcon>
                     ) : (
                         // <ThumbDownOffAlt></ThumbDownOffAlt>
-                        <Button variant="contained" size="small">
+                        <ArrowDropDownOutlinedIcon variant="contained" size="large" style={{
+                            maxWidth: "50px",
+                            maxHeight: "50px",
+                            minWidth: "50px",
+                            minHeight: "50px",
+                            color:"#808080",
+                          }} >
                             dislike
-                        </Button>
+                        </ArrowDropDownOutlinedIcon>
                     )}
                 </div>
             </Containervotes>
             <Containerfeed>
                 {" "}
                 <ContainerUserName>
-                    posted by {/* <AccountCircleIcon /> */}
+                    Posted by :- {/* <AccountCircleIcon /> */}
                     {feed.username}
                     <ContainerTime>
                         {moment(feed.date + "T" + feed.time).fromNow()}
@@ -179,7 +190,7 @@ export default function Post({ feed }) {
                                 to={"/search/" + tag.trim()}
                                 target="_blank"
                             >
-                                {tag}
+                                {"#"+tag}
                             </Link>
                             {/* <button onClick={
                                 ((e) => ( handleSubmit(tag)))
@@ -187,7 +198,7 @@ export default function Post({ feed }) {
                         </Containertags>
                     ))}
                 </div>
-                <span>{loading ? "loading please wait" : ""}</span>
+                {/* <span>{loading ? "loading please wait" : ""}</span> */}
             </Containerfeed>
         </Container>
         // </>
