@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Comfeed__logo from "../Photos/Comfeed__logo.png";
 
 import axiosInstance from "../axios";
 import InputGroup from "../components/InputGroup";
@@ -65,16 +66,58 @@ function Signup() {
     };
 
     return (
-        <ThemeProvider theme={theme}>
-            <>
-                {/* <GlobalStyles /> */}
-
-                <Header />
-
-                <EntryPage>
+         <ThemeProvider theme={theme}>
+         <>
+           <div
+             className=""
+             style={{
+               // backgroundImage: `linear-gradient(to top, #75c7ff, #75c7ff, #75c7ff, #75c7ff, #75c7ff)`,
+               height: "100vh",
+               width: "100%",
+             }}
+           >
+             <div className="page-header">
+               <div
+                 class="navbar navbar-inverse navbar-static-top bg-dark text-white w-30"
+                 style={{
+                   backgroundImage: `linear-gradient(to top, #000000, #000000, #000000, #000000, #000000)`,
+                 }}
+               >
+                 <div class="row">
+                   <div class="col-sm-3">
+                     <a href="/">
+                       <img
+                         src={Comfeed__logo}
+                         alt="logo"
+                         className="img-thumbnail navbar-brand p-0"
+                         width="70"
+                         height="40"
+                         style={{marginLeft:"15px",borderRadius:"15px"}}
+                       />
+                     </a>
+                   </div>
+                   <div class="col-sm-9">
+                     <div class="row">
+                       <p
+                         className="text-left"
+                         style={{
+                           margin:"auto",
+                           fontFamily: "Unbounded,cursive",
+                           color: "White",
+                           fontSize:'32px'}}
+                       >
+                         Comfeed
+                       </p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <EntryPage>
                     {/* <PageHeader to="/"> AWESOME LOGO</PageHeader> */}
                     <EntryCard>
-                        <h2>Sign up</h2>
+                        <p className="fw-bold text-uppercase mb-5" style={{
+                        fontFamily: "Unbounded,cursive",
+                        fontSize:'28px'}}>Sign up</p>
 
                         <form onSubmit={handleSubmit}>
                             <InputGroup>
@@ -82,7 +125,7 @@ function Signup() {
                                 <Input
                                     type="text"
                                     required
-                                    placeholder="username"
+                                    placeholder="Username"
                                     id="Signup-username"
                                     name="username"
                                     onChange={handleChange}
@@ -93,7 +136,7 @@ function Signup() {
                                 <label htmlFor="Signup-password"></label>
                                 <Input
                                     required
-                                    placeholder="password"
+                                    placeholder="Password"
                                     id="Signup-password"
                                     name="password"
                                     type="password"
@@ -108,14 +151,16 @@ function Signup() {
                             )}
                         </form>
 
-                        <span>
+                        <span style={{fontSize:"18px"}}>
                             Already have a account?
                             <Link to="/login">Log in</Link>
                         </span>
                     </EntryCard>
                 </EntryPage>
-            </>
-        </ThemeProvider>
+             </div>
+           </div>
+         </>
+       </ThemeProvider>
     );
 }
 

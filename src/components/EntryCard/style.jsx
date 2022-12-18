@@ -5,7 +5,9 @@ export const StyledEntryCard = styled.div`
     border-radius: 5px;
     padding: 50px;
     background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    -webkit-box-shadow: -3px 6px 11px -7px rgba(0, 0, 0, 1);
+    -moz-box-shadow: -3px 6px 11px -7px rgba(0, 0, 0, 1);
+    box-shadow: -3px 6px 11px -7px rgba(0, 0, 0, 1);
     text-align: center;
 
     h2{

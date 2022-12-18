@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../axios";
+import Avatar from "react-avatar";
 import {
     Container,
     Containerfeed,
@@ -11,16 +12,10 @@ import {
 } from "./styles/Container.styled";
 import { ContainerTime } from "./styles/Container.styled";
 import moment from "moment";
-// import ThumbUpOffAlt from "@mui/icons-material/ThumbUpOffAlt";
-// import IconButton from "@mui/material/IconButton";
-import { Button } from "@mui/material";
 import ArrowDropUpOutlinedIcon from '@mui/icons-material/ArrowDropUpOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import { Link } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
-// import ThumbUpAlt from "@mui/icons-material/ThumbUpAlt";
-// import ThumbDownAlt from "@mui/icons-material/ThumbDownAlt";
-// import ThumbDownOffAlt from "@mui/icons-material/ThumbDownOffAlt";
 
 export default function Post({ feed }) {
     const [changedata, setchange] = useState(feed.vote);
@@ -105,8 +100,8 @@ export default function Post({ feed }) {
             key={feed.chat_id}
             style={{
                 backgroundColor: isnegetive
-                    ? "rgba(245, 265, 245, .75)"
-                    : "rgba(295, 225, 245, .75)",
+                    ? "rgb(172,225,175)"
+                    : "rgb(240,128,128)",
             }}
         >
             <Containervotes>
@@ -171,7 +166,18 @@ export default function Post({ feed }) {
             <Containerfeed>
                 {" "}
                 <ContainerUserName>
-                    Posted by :- {/* <AccountCircleIcon /> */}
+                    Posted by -
+                     {/* {<Avatar
+                    name={feed.username}
+                    size={25}
+                    round="25px"
+                    color={Avatar.getRandomColor("sitebase", [
+                      "#d19fe8",
+                      "##99e6b3",
+                      "#ff6347",
+                    ])}
+                  />} */}
+                  &nbsp;
                     {feed.username}
                     <ContainerTime>
                         {moment(feed.date + "T" + feed.time).fromNow()}

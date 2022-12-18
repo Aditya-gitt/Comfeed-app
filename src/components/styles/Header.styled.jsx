@@ -2,59 +2,8 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 export const StyledHeader = styled.header`
     background-color: ${({ theme }) => theme.colors.header};
-    padding: 0px 10px;
-    color: white;
-    height: 80px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-bottom: 3px solid grey;
-    justify-content: flex-end;
-
-    // margin-right: 20px;
-    // justify-content: auto;
-
-    img {
-        color: white;
-        // outline: 3px solid red;
-        // border-color: green;
-        border: 3px solid;
-        border-radius: 15px;
-        position: relative;
-        max-height: 60px;
-        margin-top: 6px;
-        margin-right: 20px;
-        background-color: white;
-
-        // top: 5px;
-        // margin-left: 1%;
-        // left: 0%;
-    }
-    h1 {
-        position: relative;
-        margin-right: auto;
-
-        // justify-content: auto;
-        // display: block;
-        // position: absolute;
-        // color: white;
-        // margin-left: 2%;
-        // text-align: center;
-        // position: absolute;
-        // left: 45%;
-        // top: 10px;
-        // max-height: 12%;
-        // margin-left: 1%;
-        // background-color: white;
-    }
-    span {
-        margin-right: 10px;
-        margin-left: 10px;
-        position: absolute;
-        right: 0%;
-        top: 10px;
-        color: white;
-        // top: 2%;
+    // border-bottom: 0px solid white;
+    border-bottom: 1px solid grey;
     }
 `;
 
@@ -81,6 +30,4 @@ export const NavItemLink = styled(Link)`
                 background-color: #0072ff;
             }
         `};
-`;
-export const StyledLetterIcon = styled.span`
 `;

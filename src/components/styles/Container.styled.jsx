@@ -57,8 +57,9 @@ export const Containertags = styled.button`
     padding-top: 3px;
     padding-bottom: 3px;
     margin: 10px;
-    background-color: lightblue;
-    border-radius: 40px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 30px;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.24);
     curson: pointer:
     transition: 0.1s all;

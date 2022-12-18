@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Comrow = styled.div`
     // margin-top: 60px;
     // background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    background:black;
     // backdrop-filter: blur(7px);
     &::after {
         content: "";
@@ -18,13 +19,10 @@ export const Comcol = styled.div`
 export const Leftcol = styled.div`
     float: left;
     min-width: 25%;
-    border-top: 2px solid grey;
     min-height: 100vh;
-    // background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-    // backdrop-filter: blur(7px);
+    // background-color: #b7d3e2;
 `;
 export const Rightcol = styled.div`
-    border-top: 2px solid grey;
     float: left;
     min-width: 25%;
     min-height: 100vh;
@@ -38,15 +36,16 @@ export const Middlecol = styled.div`
     float: left;
     width: 50%;
     border: 1px solid grey;
+    border-top: none;
 `;
 
-export const LeftContent = styled.div`
-    margin-left: 40%;
-`;
+// export const LeftContent = styled.div`
+//     margin-left: 40%;
+// `;
 
-export const RightContent = styled.div`
-    margin-left: 10%;
-`;
+// export const RightContent = styled.div`
+//     margin-left: 10%;
+// `;
 export const MiddleContent = styled.div`
     margin-left: 10%;
 `;

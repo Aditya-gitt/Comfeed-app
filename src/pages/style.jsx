@@ -8,8 +8,8 @@ export const EntryPage = styled.div`
     flex-direction: coloumn;
     min-height: 100vh;
 
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-        url("https://wallpaperaccess.com/full/701802.jpg");
+    // background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    //     url("https://wallpaperaccess.com/full/701802.jpg");
 
     background-size: contain;
     background-repeat: no-repeat;

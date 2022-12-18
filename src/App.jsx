@@ -3,13 +3,13 @@ import { ThemeProvider } from "styled-components";
 // import GlobalStyles from "./components/styles/GlobalStyles";
 import SearchBar from "./components/Share/SearchBar";
 import InfiniteResults from "./pages/InfiniteResults";
+import LeftContent from "./pages/LeftContent";
+import RightContent from "./pages/RightContent";
 import {
     Comrow,
     Leftcol,
-    LeftContent,
     Middlecol,
     Rightcol,
-    RightContent,
 } from "./components/styles/Comstyles";
 import Share from "./components/Share";
 // import SearchChats from "./pages/SearchChats";
@@ -25,24 +25,21 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <>
-                {/* <GlobalStyles /> */}
                 <Header />
                 <div>
                     <Comrow>
                         <Leftcol>
-                            <LeftContent></LeftContent>
+                            <LeftContent/>
                         </Leftcol>
-                        
                         <Middlecol>
                             <Share />
-                            <InfiniteResults></InfiniteResults>
+                            <InfiniteResults/>
                         </Middlecol>
                         <Rightcol>
-                            <RightContent></RightContent>
+                            <RightContent/>
                         </Rightcol>
                     </Comrow>
                 </div>
-                {/* <InfiniteResults></InfiniteResults> */}
             </>
         </ThemeProvider>
     );
