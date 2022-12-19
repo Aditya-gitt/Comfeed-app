@@ -12,11 +12,11 @@ import {StyledFooter,StyledFooterToHome} from "./styles/Footer.styled";
 const Footer = () => {
   return (
     <StyledFooter>
-    <h5 class="card-title">You have Reached The End</h5>
+    <h5 style={{color: 'black'}} className="card-title">You have Reached The End</h5>
     <br></br>
-    <StyledFooterToHome href="#">Home</StyledFooterToHome>
+    <StyledFooterToHome href="#">Back To Top</StyledFooterToHome>
     <br></br>
-    <footer>&copy; Copyright 2022 ComFeed.Com</footer>
+    <footer style={{color: 'black',marginTop:"10px",cursor: 'pointer'}}>&copy; Copyright 2022 ComFeed.Com</footer>
   </StyledFooter>
 
   )

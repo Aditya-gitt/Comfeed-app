@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.div`
    font-size: 20px;
-   background-color: #778899;
+   background-color: white;
    color:white;
    margin: auto;
    margin-top: 10px;
@@ -12,6 +12,7 @@ export const StyledFooter = styled.div`
 `;
 export const StyledFooterToHome = styled.a`
 background-color: lightblue;
+text-decoration:none;
 cursor: pointer;
 border-radius: 10px;
 text-align: center;

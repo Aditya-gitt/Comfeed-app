@@ -109,11 +109,11 @@ export default function Post({ feed }) {
                     {changedata === 1 ? (
                         // <ThumbUpAlt></ThumbUpAlt>
                         <ArrowDropUpOutlinedIcon variant="outlined" size="large"  style={{
-                            maxWidth: "60px",
-                            maxHeight: "60px",
-                            minWidth: "60px",
-                            minHeight: "60px",
-                            color:"#808080",
+                            maxWidth: "70px",
+                            maxHeight: "70px",
+                            minWidth: "70px",
+                            minHeight: "70px",
+                            color:"white",
                           }}>
                             like
                         </ArrowDropUpOutlinedIcon>
@@ -124,7 +124,7 @@ export default function Post({ feed }) {
                             maxHeight: "50px",
                             minWidth: "50px",
                             minHeight: "50px",
-                            color:"#808080",
+                            color:"white",
                           }} >
                             {" "}
                             like
@@ -141,11 +141,11 @@ export default function Post({ feed }) {
                     {changedata === -1 ? (
                         // <ThumbDownAlt></ThumbDownAlt>
                         <ArrowDropDownOutlinedIcon variant="outlined" size="large" style={{
-                            maxWidth: "60px",
-                            maxHeight: "60px",
-                            minWidth: "60px",
-                            minHeight: "60px",
-                            color:"#808080",
+                            maxWidth: "70px",
+                            maxHeight: "70px",
+                            minWidth: "70px",
+                            minHeight: "70px",
+                            color:"white",
                             }} >
                             dislike
                         </ArrowDropDownOutlinedIcon>
@@ -156,7 +156,7 @@ export default function Post({ feed }) {
                             maxHeight: "50px",
                             minWidth: "50px",
                             minHeight: "50px",
-                            color:"#808080",
+                            color:"white",
                           }} >
                             dislike
                         </ArrowDropDownOutlinedIcon>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyledShare } from "./style";
 import { StyledTop } from "./style";
-import { StyledBottom } from "./style";
 import { StyledInputTextarea } from "./style";
 import { StyledFeed } from "./style";
 import { StyledFeedButton1 } from "./style";
@@ -142,9 +141,9 @@ function Share() {
             ></StyledInputTextarea>
           </div>
         </div>
-        <div className="row" style={{marginBottom:"10px",marginTop:"20px",paddingLeft:"8px"}}>
+        <div className="row" style={{marginBottom:"10px",marginTop:"20px"}}>
           <div className="col"></div>
-          <div className="col-4" style={{backgroundColor:"white"}} >
+          <div className="col" style={{backgroundColor:"white",zIndex:"1"}} >
             <TagsInput
               value={selected}
               onChange={setSelected}

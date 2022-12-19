@@ -22,7 +22,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerUserName = styled.div`
-    color: grey;
+    color: black;
     font-size: 18px;
     margin-top: 0px;
     margin-left: 10px;
@@ -30,7 +30,7 @@ export const ContainerUserName = styled.div`
 `;
 export const ContainerTime = styled.span`
     margin-left: 20px;
-    color: gray;
+    color: black;
     font-size: 18px;
     
 `;
